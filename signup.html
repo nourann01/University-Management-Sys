@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="styler.css">
+</head>
+
+<body onload='document.form1.email.focus()'>
+
+
+  <div class="signup">
+    <form name="form1" action="">
+      <h1>Sign Up</h1>
+      <p>Create your account in AHN University!</p>
+      <label>First Name:</label>
+      <input type="text" id="name" />
+      <br /><br />
+      <label>Last Name:</label>
+      <input type="text" />
+      <br /><br />
+
+      <label>Major:</label>
+      <input type="text" />
+      <br /><br />
+ 
+      <label>Study Year:</label>
+      <input type="text" />
+      <br /><br />
+
+      <label>Email:</label>
+      <input type="email" name="email" id="email" />
+      <br /><br />
+      <label>Password:</label>
+      <input type="password" />
+      <br /><br />
+      <label>Confirm Password:</label>
+      <input type="password" />
+      <br /><br />
+      <spam type="" id="submit" onclick="validate(document.form1.email)">Sign Up</spam>
+      <p>
+        By clicking the Sign Up button, you agree to our
+        <a href="">Terms and Conditions</a>
+        and <a href="">Privacy Policy</a>
+      </p>
+      <p>Already have an account? <a href="index.html">Login Here</a></p>
+    </form>
+  </div>
+  <script>
+
+    function validate(inputText) {
+      var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (inputText.value.match(mailformat)) {
+        alert("Valid email address!");
+        document.form1.email.focus();
+        return true;
+      }
+      else {
+        alert("You have entered an invalid email address!");
+        document.form1.email.focus();
+        return false;
+      }
+    }
+
+  </script>
+</body>
+
+</html>

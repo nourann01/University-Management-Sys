@@ -1,0 +1,58 @@
+
+    body {
+    background-color: rgb(2, 2, 80);
+    padding:40px;
+    font-size: 1.2rem;
+    font-family: Nunito, Arial, Helvetica, sans-serif;
+  }
+
+  label,
+  h1,
+  a {
+    color: goldenrod;
+  }
+  
+   p{
+    color:black;
+    }
+  
+
+  li {
+    float: left;
+    margin-top: 10px;
+    margin-left: 1rem;
+  }
+
+  .rightItems {
+    float: right;
+    margin-right: 1rem;
+  }
+
+  .signup {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: auto 20rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    text-align: center;
+  }
+
+  #submit {
+    
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.3rem 1rem;
+      transition: 2s;
+  }
+
+  #submit:hover{
+    height: 2rem;
+    cursor: pointer;
+  }
+  
+/*-----------------------
