@@ -128,7 +128,7 @@
               <td>Course Name</td>
               <td>Credit Hours</td>
               <td>Status</td>
-              <td>Drop Request</td>
+              <td>Add/Drop Request</td>
             </tr>
           </thead>
           <tbody>
@@ -148,18 +148,27 @@
                     Registred
                   </span>
                 {% endif %}
+              </td>
+              <td>
+                <form method="POST" action="{% url 'drop_course' course.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="badge bg_danger">Drop</button>
+              </form>
+            </td>
               {% else %}
                 <span class="badge bg_notReg">
                   not Registred
                 </span>
-              {% endif %}
               </td>
               <td>
-                  <form method="POST" action="{% url 'drop_course' course.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="badge bg_danger">Drop</button>
-                </form>
-              </td>
+                <form method="POST" action="{% url 'add_course' course.id %}">
+                  {% csrf_token %}
+                  <button type="submit" class="badge bg_seccuss">Add</button>
+              </form>
+            </td>
+              {% endif %}
+              
+              
                 </td>
             </tr>
           {% endfor %}
@@ -181,8 +190,8 @@
             </tr>
             {% endfor %}
               <td>
-                <h4>Willams Harris</h4>
-                <span>Willams@gmail.com</span>
+                <h4>Rick Grimes</h4>
+                <span>Rickkkkk@gmail.com</span>
               </td>
             </tr>
              

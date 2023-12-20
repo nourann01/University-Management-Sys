@@ -24,6 +24,12 @@ def drop_course(request, course_id):
     course.isReg = False
     course.save()
     return redirect('courses')
+
+def add_course(request, course_id):
+    course = Course.objects.get(id=course_id)
+    course.isReg = True
+    course.save()
+    return redirect('courses')
 # def fees(request):
 #     return render(request, 'AHNapp/fees.html')
 
