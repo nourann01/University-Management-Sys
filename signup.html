@@ -8,38 +8,50 @@
   <link rel="stylesheet" href="styler.css">
 </head>
 
-<body onload='document.form1.email.focus()'>
+<body>
 
 
   <div class="signup">
     <form name="form1" action="">
       <h1>Sign Up</h1>
       <p>Create your account in AHN University!</p>
-      <label>First Name:</label>
-      <input type="text" id="name" />
-      <br /><br />
-      <label>Last Name:</label>
-      <input type="text" />
-      <br /><br />
+      <div class="input-container">
+        <label>First Name:</label>
+        <input type="text" id="name" />
+      </div>
+      
+      <div class="input-container">
+        <label>Last Name:</label>
+        <input type="text" />
+        
+      </div>
 
-      <label>Major:</label>
-      <input type="text" />
-      <br /><br />
+      <div class="input-container">
+        <label>Major:</label>
+        <input type="text" />
+        
+      </div>
  
-      <label>Study Year:</label>
-      <input type="text" />
-      <br /><br />
-
-      <label>Email:</label>
-      <input type="email" name="email" id="email" />
-      <br /><br />
-      <label>Password:</label>
-      <input type="password" />
-      <br /><br />
-      <label>Confirm Password:</label>
-      <input type="password" />
-      <br /><br />
-      <spam type="" id="submit" onclick="validate(document.form1.email)">Sign Up</spam>
+      <div class="input-container">
+        <label>Study Year:</label>
+        <input type="text" />
+      </div>
+      <div class="input-container">
+        <label>Email:</label>
+        <input type="email" name="email" id="email" />
+      </div>
+      
+      <div class="input-container">
+        <label>Password:</label>
+        <input type="password" />
+        
+      </div>
+      <div class="input-container">
+        <label>Confirm Password:</label>
+        <input type="password" />
+      </div>
+      
+      <button type="" id="submit" onclick="validate(document.form1.email)">Sign Up</button>
       <p>
         By clicking the Sign Up button, you agree to our
         <a href="">Terms and Conditions</a>
