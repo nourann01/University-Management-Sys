@@ -18,6 +18,7 @@ class Advisor(User):
     position = models.CharField(max_length=200)
 
 class Course(models.Model):
+    Studentid = models.ForeignKey(Student, on_delete=models.CASCADE, default=0)
     CourseTitle = models.CharField(max_length=200)
     Courseid = models.AutoField(primary_key=True)
     CourseWeight = models.FloatField()
