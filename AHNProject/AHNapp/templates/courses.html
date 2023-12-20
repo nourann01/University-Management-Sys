@@ -155,9 +155,10 @@
               {% endif %}
               </td>
               <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
+                  <form method="POST" action="{% url 'drop_course' course.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="badge bg_danger">Drop</button>
+                </form>
               </td>
                 </td>
             </tr>
@@ -167,45 +168,24 @@
       </div>
       <div class="Tutors_name">
         <div class="card_header">
-          <h2>Course Tutors</h2>
+          <h2>Advisors</h2>
         </div>
         <table>
           <tbody>
+            {% for advisor in advisorat %}
             <tr>
-              
+              <td>
+                <h4>{{advisor.name}}</h4>
+                <span>{{advisor.email}}</span>
+              </td>
+            </tr>
+            {% endfor %}
               <td>
                 <h4>Willams Harris</h4>
                 <span>Willams@gmail.com</span>
               </td>
             </tr>
-            <tr>
-              
-              <td>
-                <h4>Vanessa Tucker</h4>
-                <span>Vanessa@gmail.com</span>
-              </td>
-            </tr>
-            <tr>
-              
-              <td>
-                <h4>Sharon Lessma</h4>
-                <span>Sharon@gmail.com</span>
-              </td>
-            </tr>
-            <tr>
-              
-              <td>
-                <h4>Sally Mason</h4>
-                <span>Sally@gmail.com</span>
-              </td>
-            </tr>
-            <tr>
              
-              <td>
-                <h4>Alexander Graham</h4>
-                <span>Alex@gmail.com</span>
-              </td>
-            </tr>
             
           </tbody>
         </table>

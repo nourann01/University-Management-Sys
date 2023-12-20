@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.db.models import Sum
 from .models import Course, User, Student, Advisor
 # Create your views here.
@@ -13,10 +13,17 @@ def home(request):
 
 def courses(request):
     items = Course.objects.all()
+    advisorat = Advisor.objects.all()
     total_weight = Course.objects.all().aggregate(Sum('CourseWeight'))['CourseWeight__sum']
     regis_num = Course.objects.filter(isReg=True).count()
-    return render(request, 'courses.html', {'courses': items,'total_weight': total_weight,"regis_num":regis_num})
+    return render(request, 'courses.html', {'courses': items,'total_weight': total_weight,"regis_num":regis_num,'advisorat':advisorat})
 
+
+def drop_course(request, course_id):
+    course = Course.objects.get(id=course_id)
+    course.isReg = False
+    course.save()
+    return redirect('courses')
 # def fees(request):
 #     return render(request, 'AHNapp/fees.html')
 
