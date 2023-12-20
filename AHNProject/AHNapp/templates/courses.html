@@ -88,14 +88,14 @@
     <div class="card-boxes">
       <div class="box">
         <div class="right_side">
-          <div class="numbers">17</div>
+          <div class="numbers">{{total_weight}}</div>
           <div class="box_topic">Registred Hours </div>
         </div>
         
       </div>
       <div class="box">
         <div class="right_side">
-          <div class="numbers">6</div>
+          <div class="numbers">{{regis_num}}</div>
           <div class="box_topic">Registred Courses</div>
         </div>
        
@@ -124,6 +124,7 @@
         <table>
           <thead>
             <tr>
+              <td>Course Code</td>
               <td>Course Name</td>
               <td>Credit Hours</td>
               <td>Status</td>
@@ -133,11 +134,12 @@
           <tbody>
             {% for course in courses %}
             <tr>
-              <td>{{course.CourseName}}</td>
+              <td>{{course.CourseCode}}</td>
+              <td>{{course.CourseTitle}}</td>
               <td>{{course.CourseWeight}}</td>
               <td>
               {%if course.isReg %}
-                {% if course.CourseGrade %}
+                {% if course.CourseGrade > 0.00 %}
                   <span class="badge bg_seccuss">
                     {{course.CourseGrade}}
                   </span>
@@ -147,7 +149,7 @@
                   </span>
                 {% endif %}
               {% else %}
-                <span class="badge bg_notreg">
+                <span class="badge bg_notReg">
                   not Registred
                 </span>
               {% endif %}
@@ -554,6 +556,9 @@
 }
 .bg_seccuss{
   background: #198754;
+}
+.bg_notReg{
+  background: #ffc107;
 }
 
 
