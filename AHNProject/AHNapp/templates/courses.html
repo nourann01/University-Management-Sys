@@ -131,10 +131,15 @@
             </tr>
           </thead>
           <tbody>
+            {% for course in courses %}
             <tr>
-              <td>Control Engineering</td>
-              <td>4</td>
-              <td>
+              <td>{{course.CourseName}}</td>
+              <td>{{course.CourseWeight}}</td>
+              <td>{%if course.isReg %}
+                <span class="badge bg_seccuss">
+                  Registred
+                </span>
+                {% else %}
                 <span class="badge bg_seccuss">
                   Registred
                 </span>
@@ -146,74 +151,7 @@
               </td>
                 </td>
             </tr>
-            <tr>
-              <td>Mathematics</td>
-              <td>3</td>
-              <td>
-                <span class="badge bg_seccuss">
-                  Registred
-                </span>
-              </td>
-              <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
-              </td>
-
-            </tr>
-            <tr>
-              <td>Software Engineering</td>
-              <td>4</td>
-              <td>
-                <span class="badge bg_seccuss">
-                  Registred
-                </span>
-              </td>
-              <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
-              </td>
-            </tr>
-            <tr>
-              <td>Programming</td>
-              <td>2</td>
-              <td>
-                <span class="badge bg_seccuss">
-                  Registred
-                </span>
-              </td>
-              <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
-            </tr>
-            <tr>
-              <td>Operating Systems</td>
-              <td>3</td>
-              <td>
-                <span class="badge bg_seccuss">
-                  Registred
-                </span>
-              </td>
-              <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
-            </tr>
-            <tr>
-              <td>Database Systems</td>
-              <td>2</td>
-              <td>
-                <span class="badge bg_seccuss">
-                  Registred
-                </span>
-              </td>
-              <td>
-                <span class="badge bg_danger">
-                    Drop
-                  </span>
-            </tr>
+           
           </tbody>
         </table>
       </div>

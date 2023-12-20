@@ -17,4 +17,9 @@ class Student(User):
 class Advisor(User):
     position = models.CharField(max_length=200)
 
-    
+class Course(models.Model):
+    CourseTitle = models.CharField(max_length=200)
+    Courseid = models.AutoField(primary_key=True)
+    CourseWeight = models.FloatField()
+    CourseGrade = models.FloatField()
+    isReg = models.BooleanField(default=False)
