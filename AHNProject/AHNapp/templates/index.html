@@ -21,6 +21,9 @@
 
                 <form class="flex-c" method="post" action="{% url 'login' %}">
                     {% csrf_token %}
+                    {{ form.as_p }}
+
+
                     <div class="input-box">
                         <span class="label">E-mail</span>
                         <div class=" flex-r input">
