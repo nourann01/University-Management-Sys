@@ -17,17 +17,19 @@
                 </div>
                 <h1>Welcome Back!</h1>
                 <p>AHN University Managment System for Undergraduates </p>
-                <p style="color:red">{{message}} </p>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color:red">{{message}} </p>
+                    {% endfor %}
 
-                <form class="flex-c" method="post" action="{% url 'login' %}">
+                {% endif %}
+                <form class="flex-c" method="post" action="{% url 'login_user' %}">
                     {% csrf_token %}
-                    {{ form.as_p }}
-
 
                     <div class="input-box">
                         <span class="label">E-mail</span>
                         <div class=" flex-r input">
-                            <input type="text" placeholder="" name="email">
+                            <input type="text" placeholder="" name="username">
                             <i class="fas fa-at"></i>
                         </div>
                     </div>
@@ -49,7 +51,7 @@
                 </form>
                     <span class="extra-line">
                         <span>Don't have an account?</span>
-                        <a href="/signup">Sign Up</a>
+                        <a href="/signup_user">Sign Up</a>
                     </span>
 
             </div>
