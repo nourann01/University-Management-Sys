@@ -39,8 +39,13 @@ def register_user(request):
         if form.is_valid():
             # save user to database
             user = form.save()
+            username = form.cleaned_data.get('username')
+            name = form.cleaned_data.get('name')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(request, username=username, password=password)
             # log the user in
             login(request, user)
+            messages.success(request, f'Account created for {username}!')
             return redirect('home')
     else:
         form = UserCreationForm()

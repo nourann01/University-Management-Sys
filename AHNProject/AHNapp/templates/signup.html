@@ -11,7 +11,10 @@
 <body>
 
   <div class="signup">
-    <form name="form1" action="{% url 'signup' %}" method="POST">
+    {% if forms.errors %}
+      <p style="color:#cd3545;">There was an error with your form...</p>
+    {% endif %}
+    <form name="form1" action="{% url 'register_user' %}" method="POST">
       <h1>Sign Up</h1>
       {% csrf_token %}
       <p>Create your account in AHN University!</p>
@@ -38,12 +41,12 @@
       </div>
       <div class="input-container">
         <label>Email:</label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="username" id="email" />
       </div>
       
       <div class="input-container">
         <label>Password:</label>
-        <input type="password" />
+        <input type="password" name="password1" />
         
       </div>
       <div class="input-container">
@@ -57,7 +60,7 @@
         <a href="">Terms and Conditions</a>
         and <a href="">Privacy Policy</a>
       </p>
-      <p>Already have an account? <a href="index.html">Login Here</a></p>
+      <p>Already have an account? <a href="/">Login Here</a></p>
     </form>
   </div>
   <script>

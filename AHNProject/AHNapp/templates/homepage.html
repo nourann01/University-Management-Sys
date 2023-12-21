@@ -16,9 +16,15 @@
             <li><a href="/home" class=" active nav-links">Home</a></li>
             <li><a href="/services" class="nav-links">My Services</a></li>
             <li><a href="/courses" class="nav-links">My Courses</a></li>
-            <li><a href="/fees" class="nav-links">Fees</a></li>
+            <li><a href="/fees" class="nav-links">Fees</a></li> 
             <li><a href="/profile" class="nav-links">Profile</a></li>
-            <li><a href="/logout_user" class="btn bg_danger">logout</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="/logout_user" class=" btn" style="background-color:#cd3545">logout</a></li>
+            {% else %}
+                <li><a href="/register_user" class=" btn" style="background-color:orange">register</a></li>
+                <li><a href="/login_user" class=" btn" style="background-color:green">login</a></li>
+
+            {% endif %}
         </ul>
     </nav>
     <main>
@@ -103,6 +109,13 @@
     }
     
     
+    .bg_danger{
+        background: #cd3545;
+    }
+    .bg_seccuss{
+        background: #198754;
+    }
+
     
     .homepage-container{
         display: grid;
