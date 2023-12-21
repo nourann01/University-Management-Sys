@@ -4,10 +4,39 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render,redirect
 from django.db.models import Sum
 from .models import Course, User, Student, Advisor
-
+from django.contrib.auth.models import User
 # Create your views here.
 
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            # Create Student object
+            Student.objects.create(user=user, first_name=request.POST['first_name'], last_name=request.POST['last_name'], major=request.POST['major'], study_year=request.POST['study_year'])
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 
+def login_view(request):
+    if request.method == 'POST':
+        user = authenticate(request, username=request.POST['email'], password=request.POST['password'])
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'index.html', {'message': 'Invalid login credentials'})
+    else:
+        return render(request, 'index.html')
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('index')
+    else:
+        return render(request, 'index.html')
 def index(request):
     return render(request, 'index.html')
 

@@ -19,7 +19,7 @@
                 <p>AHN University Managment System for Undergraduates </p>
                 <p style="color:red">{{message}} </p>
 
-                <form class="flex-c" method="post">
+                <form class="flex-c" method="post" action="{% url 'login' %}">
                     {% csrf_token %}
                     <div class="input-box">
                         <span class="label">E-mail</span>
