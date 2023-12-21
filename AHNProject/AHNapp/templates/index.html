@@ -17,29 +17,32 @@
                 </div>
                 <h1>Welcome Back!</h1>
                 <p>AHN University Managment System for Undergraduates </p>
+                <p style="color:red">{{message}} </p>
 
-                <form class="flex-c">
+                <form class="flex-c" method="post">
+                    {% csrf_token %}
                     <div class="input-box">
                         <span class="label">E-mail</span>
                         <div class=" flex-r input">
-                            <input type="text" placeholder="">
+                            <input type="text" placeholder="" name="email">
                             <i class="fas fa-at"></i>
                         </div>
                     </div>
-                    
+                        {{ form.as_p }}
                     <div class="input-box">
                         <span class="label">Password</span>
                         <div class="flex-r input">
-                            <input type="password" placeholder="">
+                            <input type="password" placeholder="" name="password">
                             <i class="fas fa-lock"></i>
                         </div>
                     </div>
-
+                    
                     <div class="check">
                         <input type="checkbox" name="" id="">
                         <span>Remember me</span>
                     </div>
-                   <a href="homepage.html" input class="btn" type="submit" value="Login">Login</a> 
+                    <button type="submit" class="btn ">Login</button>
+                    
                     
                     <span class="extra-line">
                         <span>Don't have an account?</span>
