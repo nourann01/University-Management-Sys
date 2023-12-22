@@ -6,8 +6,13 @@ from django.shortcuts import render,redirect
 from django.db.models import Sum
 from .models import Course, User, Student, Advisor
 from django.contrib.auth.models import User
-
+from django.http import FileResponse
+import os
+from django.conf import settings
 from .forms import RegisterUserForm
+from django.http import FileResponse
+from django.http import HttpResponse
+from pathlib import Path
 # Create your views here.
 
 
@@ -91,3 +96,9 @@ def profile(request):
 
 def services(request):
     return render(request, 'myservices.html')
+
+def getpdf(request):
+    file_path = Path(settings.STATIC_ROOT) / 'services.pdf'
+    response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="services.pdf"'
+    return response

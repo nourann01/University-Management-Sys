@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('', views.home, name='home'),
     path('home', views.home, name='home'),
@@ -17,7 +18,8 @@ urlpatterns = [
     path('fees',views.fees,name='fees'),
     path('profile',views.profile,name='profile'),
     path('services',views.services,name='services'),
-    
+    path('getpdf',views.getpdf,name='getpdf'),
+
     # path('fees', views.fees, name='fees'),
     # path('profile', views.profile, name='profile'),
-]
+]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

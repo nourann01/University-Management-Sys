@@ -25,3 +25,4 @@ class Course(models.Model):
     CourseWeight = models.FloatField()
     CourseGrade = models.FloatField()
     isReg = models.BooleanField(default=False)
+    
