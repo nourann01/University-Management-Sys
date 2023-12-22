@@ -20,43 +20,6 @@
       <p>Create your account in AHN University!</p>
 
       {{form.as_p}}
-      <br>
-
-      <div class="input-container">
-        <label>First Name:</label>
-        <input type="text" id="name" />
-      </div>
-      
-      <div class="input-container">
-        <label>Last Name:</label>
-        <input type="text" />
-        
-      </div>
-
-      <div class="input-container">
-        <label>Major:</label>
-        <input type="text" />
-        
-      </div>
- 
-      <div class="input-container">
-        <label>Study Year:</label>
-        <input type="text" />
-      </div>
-      <div class="input-container">
-        <label>Email:</label>
-        <input type="email" name="username" id="email" />
-      </div>
-      
-      <div class="input-container">
-        <label>Password:</label>
-        <input type="password" name="password1" />
-        
-      </div>
-      <div class="input-container">
-        <label>Confirm Password:</label>
-        <input type="password" />
-      </div>
       
       <button type="" id="submit" onclick="validate(document.form1.email)" style="border-radius: 25px;">Sign Up</button>
       <p>
@@ -165,6 +128,24 @@ li {
 
 }
 .input-container > input:focus{
+  transform: scale(1.05);
+}
+
+
+.input-container + .input-container{
+  margin-top:10px;
+}
+.input-container > label{
+  align-self: flex-start;
+}
+.input-container-input{
+  width:100%;
+  padding:5px;
+  border-radius: 5px;
+  border: 1px solid black;
+
+}
+.input-container-input:focus{
   transform: scale(1.05);
 }
 /*-----------------------*/

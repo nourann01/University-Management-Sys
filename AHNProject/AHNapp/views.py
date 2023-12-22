@@ -6,6 +6,8 @@ from django.shortcuts import render,redirect
 from django.db.models import Sum
 from .models import Course, User, Student, Advisor
 from django.contrib.auth.models import User
+
+from .forms import RegisterUserForm
 # Create your views here.
 
 
@@ -35,7 +37,7 @@ def logout_user(request):
     
 def register_user(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterUserForm(request.POST)
         if form.is_valid():
             # save user to database
             user = form.save()
@@ -47,8 +49,9 @@ def register_user(request):
             login(request, user)
             messages.success(request, f'Account created for {username}!')
             return redirect('home')
+        
     else:
-        form = UserCreationForm()
+        form = RegisterUserForm()
     return render(request, 'signup.html', {'form': form})
 
 def home(request):
