@@ -63,7 +63,7 @@ def home(request):
 def courses(request):
     items = Course.objects.all()
     advisorat = Advisor.objects.all()
-    total_weight = Course.objects.all().filter(isReg=True).aggregate(Sum('CourseWeight'))['CourseWeight__sum']
+    total_weight = Course.objects.all().filter(isReg=True).filter().aggregate(Sum('CourseWeight'))['CourseWeight__sum']
     regis_num = Course.objects.filter(isReg=True).count()
     return render(request, 'courses.html', {'courses': items,'total_weight': total_weight,"regis_num":regis_num,'advisorat':advisorat})
 

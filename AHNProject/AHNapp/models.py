@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+from django.conf import settings
 # Create your models here.
 
 class User(models.Model):
@@ -15,10 +17,9 @@ class Student(User):
 
 class Advisor(User):
     position = models.CharField(max_length=200)
-
 class Course(models.Model):
     id = models.AutoField(primary_key=True)
-    Studentid = models.ForeignKey(Student, on_delete=models.CASCADE, default=0)
+    Studentid = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='Studentid')
     CourseTitle = models.CharField(max_length=200)
     CourseCode = models.CharField(max_length=200)
     CourseWeight = models.FloatField()
