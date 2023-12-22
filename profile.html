@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="fees.css">
+    <meta name="author" content="">
+    <title>My Profile </title>
+    <!-- import font icon (fontawesome) -->
+    <script src="https://kit.fontawesome.com/b8b432d7d3.js" crossorigin="anonymous"></script>
+    <!-- import css file (style.css) -->
+    <link rel="stylesheet" href="profile.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <title>Tuition Fees</title>
 </head>
 <body>
-
     <div class="sidebar">
         <div class="logo_details">
           <i class='bx bx-code-alt'></i>
@@ -52,7 +55,7 @@
             </a>
           </li>
           <li>
-            <a href="profile.html">
+            <a href="profile.html" class="active">
                 <i class='bx bx-user'></i>
               <span class="links_name">
                 Profile
@@ -60,7 +63,7 @@
             </a>
           </li>
           <li>
-            <a href="fees.html" class="active">
+            <a href="fees.html">
               <i class='bx bx-dollar' ></i>
               <span class="links_name">
                 Fees
@@ -126,41 +129,71 @@
         </ul>
       </div>
 
-
+   
     <div class="container">
-    <form action="">
-        <h1>Fees Payment</h1>
-        <fieldset>
-            <strong>Payment Method</strong>
-            <p>
-                <label for="Male">Fawry<input type="radio" name="gender" id="Male" required></label>
-                <label for="Female">Credit Card<input type="radio" name="gender" id="Female" required></label>
-            </p>
-        </fieldset>
+
+        <div class="profile-card">
+            <div class="profile-header"><!-- profile header section -->
+                <div class="main-profile">
+                    <div class="profile-image">
+                      <div class="img-container"><img src="https://th.bing.com/th/id/OIP.zg_3qiXGRVMw-JTtlpUMjAAAAA?rs=1&pid=ImgDetMain" alt=""></div>
+                    </div>
+                    <div class="profile-names">
+                        <h1 class="username">Student Username</h1>
+                        <small class="page-title"> CESS Student</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-body"><!-- profile body section -->
+                <div class="profile-actions">
+                    <button class="follow">Edit Profile</button>
+                    <button class="message">Dashboard</button>
+                    <section class="bio">
+                        <div class="bio-header">
+                            <i class="fa fa-info-circle"></i>
+                            Bio
+                        </div>
+                        <p class="bio-text">
+                        Credit Hours,Inter-Disciplinary Programs, Electrical Engineering, Level: Junior , Term: Fall 2023
+                        </p>
+                    </section>
+                </div>
+
+                <div class="account-info">
+                    <div class="data">
+                        <div class="important-data">
+                            <section class="data-item">
+                                <h3 class="value">GPA</h3>
+                            
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">ID</h3>
+                                
+                            </section>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">Nationality</h3>
         
-        <h2>Pay by Fawry</h2>
-        <p>Phone Number: <input type="text" placeholder="+20 --- -------" name="name" required></p>
-        
+                            </section>
+                        </div>
+                        <div class="other-data">
+                            <section class="data-item">
+                                <h3 class="value">3.2</h3>
+                            
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">21P016</h3>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">Egyptian</h3>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <p>Email:<input type="email" name="email" id="email" required></p>
-       
-        <h2>Pay by Credit Card</h2>
-
-        <p> Card Type *
-        <select name="ct" id="ct" required>
-            <option value="" >--Select A Card Type--</option>
-            <option value="visa">Visa</option>
-            <option value="mastercard">Mastercard</option>
-            <option value="rupay">Debit Card</option>
-        </select>
-        </p>
-
-        <p>Card Number* <input type="number" name="number" id="number" required></p>
-        <p>Card Holder Name* <input type="number" name="number" id="number" required></p>
-        <p>Expiration Date* <input type="date" name="date" id="date" required></p>
-        <p>CVV* <input type="password" name="cvv" id="cvv" required></p>
-        <input type="submit" value="Pay Now">
-    </form>
-</div>
+    </div>
 </body>
 </html>
