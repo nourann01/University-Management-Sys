@@ -13,6 +13,11 @@ urlpatterns = [
     path('logout_user', views.logout_user, name='logout_user'),
     path('register_user', views.register_user, name='register_user'),
     
+
+    path('fees',views.fees,name='fees'),
+    path('profile',views.profile,name='profile'),
+    path('services',views.services,name='services'),
+    
     # path('fees', views.fees, name='fees'),
     # path('profile', views.profile, name='profile'),
 ]

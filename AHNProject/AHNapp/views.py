@@ -61,10 +61,11 @@ def home(request):
 #     return render(request, 'AHNapp/services.html')
 
 def courses(request):
-    items = Course.objects.all()
+    user = request.user
+    items = Course.objects.filter(Studentid=user).all()
     advisorat = Advisor.objects.all()
-    total_weight = Course.objects.all().filter(isReg=True).filter().aggregate(Sum('CourseWeight'))['CourseWeight__sum']
-    regis_num = Course.objects.filter(isReg=True).count()
+    total_weight = Course.objects.all().filter(isReg=True).filter(Studentid=user).aggregate(Sum('CourseWeight'))['CourseWeight__sum']
+    regis_num = Course.objects.filter(isReg=True).filter(Studentid=user).count()
     return render(request, 'courses.html', {'courses': items,'total_weight': total_weight,"regis_num":regis_num,'advisorat':advisorat})
 
 
@@ -79,8 +80,14 @@ def add_course(request, course_id):
     course.isReg = True
     course.save()
     return redirect('courses')
-# def fees(request):
-#     return render(request, 'AHNapp/fees.html')
 
-# def profile(request):
-#     return render(request, 'AHNapp/profile.html')
+
+
+def fees(request):
+    return render(request, 'fees.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
+def services(request):
+    return render(request, 'myservices.html')
