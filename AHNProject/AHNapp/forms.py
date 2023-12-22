@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 class RegisterUserForm(UserCreationForm):
-    first_name = forms.CharField(max_length=100,widget=forms.EmailInput(attrs={'class':'input-container-input'}))
+    first_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'input-container-input'}))
     last_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'input-container-input'}))    
     Major = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'input-container-input'}))
     StudyYear = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'class':'input-container-input'}))
@@ -20,6 +20,7 @@ class RegisterUserForm(UserCreationForm):
         self.fields["username"].widget.attrs["placeholder"] = "rickGrimes@AHN.edu.eg"
         self.fields["username"].label = "Email"
         self.fields["username"].help_text = ""
+        self.fields["username"].widget.forms="EmailInput"
         self.fields["username"].widget.attrs["autocomplete"] = "off"
         self.fields["username"].widget.attrs["required"] = True
         self.fields["username"].widget.attrs["autofocus"] = True
